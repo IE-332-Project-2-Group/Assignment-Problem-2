@@ -1,0 +1,14 @@
+library(purrr)
+
+f <- function(x) {
+  count <- 0
+  i <- 0
+  while (i < x) {
+    xcyc <- map_dbl(rep(runif(1,-1,1), 2), `^`, 2)
+    if (sum(xcyc) < 1) {
+      count <- count + 1
+    }
+    i <- i + 1
+  }
+  print(count/i*4)
+}
